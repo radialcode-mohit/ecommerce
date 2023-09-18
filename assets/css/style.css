@@ -30,7 +30,29 @@
 .fs_56{
     font-size: 56px;
 }
+.strike{
+    text-decoration: line-through;
+}
+.fs_30{
+    font-size: 25px;
+}
+    .quantity-container {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .quantity-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
 @media (max-width:992px) {
+    .fs_30{
+    font-size: 20px;
+}
     .logow{
         max-width: 200px;
     }

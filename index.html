@@ -57,14 +57,45 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-12">
+                <div class="col-lg-6 col-12 pt-5 pt-lg-0">
                     <h1 class="fs_56">DMOOSTER LUGGAGE WIRELESS EARBUDS</h1>
+                    <div class="d-flex align-items-center">
+                        <p class="strike fs_30 text-danger mb-0">Rs. 5,999.00</p> &nbsp; &nbsp;
+                        <p class="fs_30 text-danger mb-0">Rs. 199.00</p>
+                    </div>
+                    <p style="font-size: 16px;">Tax included.</p>
+                    <p class="mb-0">QUANTITY</p>
+                    <div class="quantity-container">
+                        <button class="quantity-button" onclick="decrementQuantity()">-</button>
+                        <span id="quantity">1</span>
+                        <button class="quantity-button" onclick="incrementQuantity()">+</button>
+                    </div>
+
                 </div>
             </div>
 
         </div>
     </div>
+
     <script>
+        const quantityDisplay = document.getElementById('quantity');
+        let currentQuantity = 1;
+
+        function incrementQuantity() {
+            currentQuantity += 1;
+            updateQuantityDisplay();
+        }
+
+        function decrementQuantity() {
+            if (currentQuantity > 1) {
+                currentQuantity -= 1;
+                updateQuantityDisplay();
+            }
+        }
+
+        function updateQuantityDisplay() {
+            quantityDisplay.textContent = currentQuantity;
+        }
         function showImage(imageSrc) {
             const bigImage = document.getElementById('bigImage');
             bigImage.src = imageSrc;
