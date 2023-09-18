@@ -27,10 +27,16 @@
 .max_smallimg{
     max-width: 100px !important;
 }
+.fs_56{
+    font-size: 56px;
+}
 @media (max-width:992px) {
     .logow{
         max-width: 200px;
     }
+    .fs_56{
+    font-size: 25px;
+}
     .ul_modify{
         position: absolute;
         top: 0;
