@@ -37,7 +37,7 @@
                         <img src="./assets/img/1stwebp.webp" alt="Big Image" id="bigImage" class="big-image">
                     </div>
                     <div class="image-slider mt-4">
-                        <div class="thumbnails overflow-x-scroll d-flex">
+                        <div class="thumbnails overflow-x-scroll d-flex example">
                             <img src="./assets/img/1stwebp.webp" alt="Image 1" class="thumbnail max_smallimg me-4"
                                 onclick="showImage('./assets/img/1stwebp.webp')">
                             <img src="./assets/img/2ndwebp.webp" alt="Image 2" class="thumbnail max_smallimg me-4"
@@ -58,44 +58,102 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 pt-5 pt-lg-0">
+                    <p class="ofer d-lg-none mb-1">*Ganesh Chaturthi Limited time offer*</p>
+                    <p style="font-size:25px;color: red;font-style: oblique;" class=" d-lg-none">6 months warranty</p>
                     <h1 class="fs_56">DMOOSTER LUGGAGE WIRELESS EARBUDS</h1>
                     <div class="d-flex align-items-center">
-                        <p class="strike fs_30 text-danger mb-0">Rs. 5,999.00</p> &nbsp; &nbsp;
-                        <p class="fs_30 text-danger mb-0">Rs. 149.00</p>
+                        <p class="fs_30 text-danger mb-0">Rs. 149.00</p>&nbsp; &nbsp;
+                        <p class="strike fs_30 text-danger mb-0">Rs. 1099.00</p>
                     </div>
                     <p style="font-size: 16px;">Tax included.</p>
                     <p class="mb-0">QUANTITY</p>
-                    <div class="quantity-container">
-                        <button class="quantity-button" onclick="decrementQuantity()">-</button>
+                    <div class="quantity-container mt-3">
+                        <button class="quantity-button me-3" onclick="decrementQuantity()">-</button>
                         <span id="quantity">1</span>
-                        <button class="quantity-button" onclick="incrementQuantity()">+</button>
+                        <button class="quantity-button ms-3" onclick="incrementQuantity()">+</button>
                     </div>
+                    <div id="messageDisplay" style="font-size: 16px;color: orange;" class="mt-3"></div>
+                    <a href="forms.html"><button class="buynow mt-4">BUY NOW</button></a>
+                    <h2 class="mt-3 mb-3">Features:</h2>
+                    <p style="font-size: 14px;">Model: Suitcase Wireless Bluetooth headsets <br> <br>
+                        Distance of Bluetooth: 10M ( Barrier Free) <br> <br>
+                        Battery Life: 24 hours <br> <br>
+                        Version of Bluetooth: 5.1 <br> <br>
+                        Battery Capacity: 35mAh*2 <br> <br>
+                        Charging Time: 30 mins</p>
+                    <img src="./assets/img/1stwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <p style="font-size: 14px;" class="mt-3">​Paster of customization, making your "suitcase" more
+                        lovely!</p>
+                    <img src="./assets/img/2ndwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <p style="font-size: 14px;" class="mt-3">​​The level of waterproof and sweatproof is IPX4. Enhance
+                        its lifetime!!</p>
+                    <img src="./assets/img/3rdwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <p style="font-size: 14px;" class="mt-3">​The version of its bluetooth is 5.1. Faster and more
+                        stable.</p>
+                    <img src="./assets/img/4rthwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
 
+                    <p style="font-size: 18px;background-color: red;color: white;text-align: center;border-radius: 20px;"
+                        class="mt-4">MORE
+                        DETAILS:-</p>
+                    <img src="./assets/img/5thwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <img src="./assets/img/6thwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <img src="./assets/img/7thwebp.webp" style="max-width: 100%;" class="mt-3" alt="">
+                    <p style="font-size: 25px;text-align: center;" class="mb-0 mt-3">Customer Reviews</p>
+                    <p style="font-size: 18px;text-align: center;" class="mt-3">First i was not able to belive but
+                        once's i got the delivery it was as
+                        good which i have never
+                        expected!A permanent
+                        customer. <br> -- Nikhil Patel</p>
+                    <p style="font-size: 18px;text-align: center;" class="mt-3">The type of quality which i recived was
+                        unexpected i loved it.
+
+                        More To Buy From This!<br> -- Priyank Shah</p>
+                    <p class="mt-4" style="font-size: 15px;"><span style="font-size: 20px;">OUR STORE</span> <br>
+
+                        V2 Retail Ltd,Khasra No. 928, Extended Lal Dora Abadi Village,<br> Kapashera Border, Tehsil
+                        Vasant
+                        Vihar, New Delhi-110037
+                        <br>
+                    </p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <script>
-        const quantityDisplay = document.getElementById('quantity');
+    <script>const quantityDisplay = document.getElementById('quantity');
+        const messageDisplay = document.getElementById('messageDisplay');
         let currentQuantity = 1;
+        const maxQuantity = 1; // Set the maximum quantity
 
         function incrementQuantity() {
-            currentQuantity += 1;
-            updateQuantityDisplay();
+            if (currentQuantity < maxQuantity) {
+                currentQuantity += 1;
+                updateQuantityDisplay();
+                showMessage("Quantity increased.");
+            } else {
+                showMessage("Due to heavy demand quantity will remain 1");
+            }
         }
 
         function decrementQuantity() {
             if (currentQuantity > 1) {
                 currentQuantity -= 1;
                 updateQuantityDisplay();
+                showMessage("Quantity decreased.");
+            } else {
+                showMessage("Due to heavy demand quantity will remain 1");
             }
         }
 
         function updateQuantityDisplay() {
             quantityDisplay.textContent = currentQuantity;
         }
+
+        function showMessage(message) {
+            messageDisplay.textContent = message;
+        }
+
         function showImage(imageSrc) {
             const bigImage = document.getElementById('bigImage');
             bigImage.src = imageSrc;

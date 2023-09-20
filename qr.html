@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperTechShop</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="countdown" class="payment time remaining text-center" style="font-size: 20px;">Payment Under 5:00</div>
+    <div class="container"><img src="./assets/img/qr.jpg" style="max-width: 100%;" alt=""></div>
+    <script>// countdown.js
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var countdownElement = document.getElementById("countdown");
+            var countdownTime = 300; // 300 seconds (5 minutes)
+            var intervalId;
+
+            function updateCountdown() {
+                var minutes = Math.floor(countdownTime / 60);
+                var seconds = countdownTime % 60;
+
+                // Format the time as "mm:ss"
+                var formattedTime = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+                countdownElement.textContent = "Payment Under " + formattedTime;
+
+                if (countdownTime <= 0) {
+                    clearInterval(intervalId);
+                    // Optionally, you can redirect to another page when the countdown reaches zero
+                    // window.location.href = 'another_page.html';
+                } else {
+                    countdownTime--;
+                }
+            }
+
+            // Initial update
+            updateCountdown();
+
+            // Start the countdown timer
+            intervalId = setInterval(updateCountdown, 1000); // Update every 1 second
+        });
+    </script>
+</body>
+
+</html>
